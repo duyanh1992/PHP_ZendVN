@@ -1,0 +1,20 @@
+<html>
+<head>
+	<script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#clickToLoad').click(function(){
+				var url = 'files/data.php';
+				$('.result').load(url, data);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="content">
+		<h3>AJAX - LOAD</h3>
+		<div class="result"></div>
+		<input type="button" name="btn" id="clickToLoad" value="Click To Load"/>
+	</div>
+</body>
+</html>

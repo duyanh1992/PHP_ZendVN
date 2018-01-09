@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script src="../js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#click').click(function(){
+				//get form data:
+				var key = 0;
+				var url = 'checkMember.php';
+				var dataSend = {
+									"username" : $('form#frm input[name="username"]').val(),
+									"password" : $('form#frm input[name="password"]').val()
+
+								};
+								
+								
+				//send data by ajax-post:
+				$.post(url,dataSend, function(data,status){
+					console.log(data);
+				});
+			});
+		});
+		
+	</script>
+</head>
+<body>
+	<form id="frm" action="#" name="frm" method="post">
+		<input id ="username" type="text" name="username"/>
+		<input type="password" name="password"/>
+		<input id="click" type="submit" name="submit" value="OK"/>
+	</form>
+</body>
+</html>

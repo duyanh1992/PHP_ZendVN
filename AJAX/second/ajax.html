@@ -1,0 +1,47 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+	<style type="text/css">
+		.error-bg{
+			background:orange;
+		}
+		
+		.errorMsg{
+			color:red;
+		}
+		
+		.borderError{
+			border:1px solid red;
+		}
+		
+		.success-bg{
+			background:lightblue;
+		}
+	</style>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				$.ajax({
+					url : 'files/ajaxData.php',
+					type : 'GET',
+					data : {name:'Duy Anh', age:'26'},
+					success : function(data, status){
+						console.log(data);
+						console.log(status);
+					}
+				});
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+	<center>
+	<h3 id="title">AJAX - LOGIN FORM</h3>
+	<form action="#" name="frm" id="frm">
+		<input type="submit" id="btn" value="Send"/>
+	</form>
+	</center>
+</body>
+</html>

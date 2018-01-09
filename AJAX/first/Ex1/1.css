@@ -1,0 +1,27 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+div#main {}
+
+div#left-bar {
+    width: 20%;
+    float: left;
+    line-height: 30px;
+}
+
+#content {
+    width: 800px;
+    height: auto;
+    margin: 10px auto;
+    border: 1px solid gray;
+}
+
+.clear{
+	clear:both;
+}
+
+.addColor{
+	color:red;
+}

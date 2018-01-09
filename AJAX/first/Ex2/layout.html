@@ -1,0 +1,26 @@
+<html>
+<meta charset='utf-8'/>
+<head>
+	<script src= "../js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		function loadActor(idCou){
+			$.get('data.php?idCou='+idCou,function(responseData, status){
+				console.log(responseData);
+				$('#dis_slt').html(responseData);
+			});
+		}
+	</script>
+</head>
+<body>
+	<select name="country" id="ct_slt" onchange="loadActor(this.value);">
+		<option value="0">Chọn quốc gia</option>
+		<option value="taiwan">Đài Loan</option>
+		<option value="china">Trung Quốc</option>
+		<option value="singapore">Singapore</option>
+	</select>
+	
+	<select name="district" id="dis_slt">
+		<option value='0' selected='selected'>Chọn diễn viên</option>
+	</select>
+</body>
+</html>
