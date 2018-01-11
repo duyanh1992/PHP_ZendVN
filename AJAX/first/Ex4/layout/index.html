@@ -12,12 +12,10 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row show-films">
+      <div class="show-films">
         
       </div>
-      <center><a id="loadmore" href="" class="btn btn-primary">Load more</a></center>
-    </div>
+      <center><p id="loadmore" href="" class="btn btn-primary">Load more</p></center>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -29,15 +27,27 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
+		var position = 0;
         var url = '../load_data.php';
-        var data = {pos:0, amount:4};
+        var data = {pos:position, amount:4};
         $('.show-films').load(url, data);
 
-        // $('#loadmore').click(function(){
-        //   $.ajax(
-        //       url: '',
-        //     );
-        // });
+        $('#loadmore').click(function(){
+			position+=4;
+			$.ajax({
+			   url: '../load_data.php',
+			   type : 'post',
+			   data: {pos:position, amount:4},
+			   success : function(res){
+					if(jQuery.isEmptyObject(res) == false){
+						$('.line:last').after(res);
+					}
+					else{
+						$('#loadmore').hide();
+					}
+			   }
+			});
+        });
       });
     </script>
   </body>

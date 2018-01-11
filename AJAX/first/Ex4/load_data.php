@@ -27,7 +27,7 @@ $arrData = getlements($arrData, $_POST['pos'], $_POST['amount']);
 //echo "</pre>";
 
 if (!empty($arrData)) {
-	$xhtml = '';
+	$xhtml = '<div class="container line"><div class="row">';
 
 	foreach($arrData as $k=>$v){
 		$xhtml .= '<div class="col-md-3 text-center" id="film-info">
@@ -38,7 +38,7 @@ if (!empty($arrData)) {
 						</p>
 					</div>';
 	}
-
+	$xhtml .= '</div></div>';
 	echo $xhtml;
 }
 ?>
