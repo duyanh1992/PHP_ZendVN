@@ -1,0 +1,2 @@
+(Dân trí) - Lương của HLV Milovan Rajevac (Serbia) bên phía đội tuyển Thái Lan, hoá ra chỉ ngang với lương của HLV Park Hang Seo (Hàn Quốc) đang nắm đội tuyển Việt Nam. Chỉ có điều đẳng cấp của 2 người này cách nhau khá xa, cách họ được chọn để nắm các đội tuyển cũng khác hẳn nhau.
+		

@@ -1,0 +1,66 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+	<style type="text/css">
+		.error-bg{
+			background:orange;
+		}
+		
+		.errorMsg{
+			color:red;
+		}
+		
+		.borderError{
+			border:1px solid red;
+		}
+		
+		.success-bg{
+			background:lightblue;
+		}
+	</style>
+	<script src="../js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				var url = 'check.php';
+				var dataSend = {
+									username : $('#frm input[name="name"]').val(),
+									password : $('#frm input[name="pass"]').val()
+								};
+				$.post(url, dataSend, function(data, status){
+					console.log(data );
+					if(status == 'success'){
+						$('#frm *').remove('.errorMsg').removeClass('borderError');
+						if(data.status == 'error'){
+							
+							$.each(data.message, function(k,v){
+								$('#frm input[name="'+k+'"]').after('<span class="errorMsg">'+v+'</span>').addClass('borderError');
+							});
+	
+						}
+						else{
+							$('#title').addClass('success-bg').text('Đăng nhập thành công');
+							$('#frm').remove();
+						}
+					}
+					
+				},'json');
+				return false;
+			});
+		});
+	</script>
+</head>
+<body>
+	<center>
+	<h3 id="title">AJAX - LOGIN FORM</h3>
+	<form action="#" name="frm" id="frm">
+		<label for="">Username</label>
+		<input type="text" name="name" />
+		<label for="">Password</label>
+		<input type="password" name="pass" />
+		
+		<input type="submit" id="btn" value="Send"/>
+	</form>
+	</center>
+</body>
+</html>

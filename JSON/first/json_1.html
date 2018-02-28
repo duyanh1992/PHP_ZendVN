@@ -1,0 +1,42 @@
+<!-- Object and Array in javascript -->
+<html>
+<body>
+	<script type="text/javascript">
+		// Create object:
+			/*var myObject = {
+                                "id" : "1",
+                                "course":"PHP programing"
+                            };
+			document.write(typeof(myObject));
+			console.log(typeof(myObject));
+            console.log(myObject);
+            console.log(myObject.course);*/
+        
+        // Create array:
+            // First way:
+            /*var arr = new Array();
+            arr[0] = 'HTML/CSS';
+            arr[1] = 'PHP';*/
+        
+            //Second way:
+            /*var arr2 = new Array('Jquery', "AngularJs");*/
+        
+            //Third way:
+            var arr3 = ['CI', 'Zend', 'Laravel'];
+        
+            //Print array:
+                //First way:
+                for(var i=0;i<arr3.length;i++){
+                    document.write(arr3[i]+"<br />");
+                } 
+                
+                //Second way:
+                for(x in arr3){
+                    document.write(x + ' - ' +arr3[x]+"<br />");
+                }
+            
+            console.log(typeof(arr3));
+            console.log(arr3);
+	</script>		
+</body>	
+</html>

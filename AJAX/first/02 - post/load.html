@@ -1,0 +1,24 @@
+<html>
+<head>
+    <link rel = "stylesheet" type="text/css" href="../css/1.css"/>
+    <script src= "../js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+		var key = 0;
+		var url = "data.php";
+		var dataSend = {"key":key};
+            $('#OK').click(function(){
+                $.post(url,dataSend,function(responseData, status){
+					//result = $.parseJSON(responseData); //convert JSON to object
+					console.log(responseData);
+					//$('#content').html(responseData.id+' - '+responseData.name);	
+				});
+            });
+        });
+	</script>
+</head>
+<body>
+    <div id="content">Hello</div>
+    <input type="submit" id="OK" value="Submit">
+</body>	
+</html>

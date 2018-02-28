@@ -1,0 +1,53 @@
+<html>
+<head>
+	<script type="text/javascript">
+		// Make a new object:
+			// The first way:
+			var object = {};
+			
+			// The second way:
+			var object2 = new Object();
+			
+			// The third way:
+			var object3 = {
+							"name":"Duy Anh",
+							"age":"26",
+							};
+			
+			var type = typeof(object3);
+			//console.log(type);
+			//console.log(object3);
+			
+		// Make a new array:
+			var arr = new Array();
+			arr[0] = 'a';
+			arr[1] = 'b';
+			arr[2] = 'c';
+			
+			//console.log(arr);
+			
+			// print array:
+			for(x in arr){
+				//console.log(x);
+				//console.log(arr[x]);
+			}
+			
+		//Make a new object array:
+			var arr2= [
+							{"name":"Duy Anh","age":"26"},
+							
+							{"name":"Carrick","age":"36"},
+							
+							{"name":"Rooney","age":"32"}
+						];
+			
+			for(x in arr2){
+				console.log(arr2[x].name+' - '+ arr2[x].age);
+			}
+			
+	</script>
+</head>
+<body>
+
+</body>
+</html>

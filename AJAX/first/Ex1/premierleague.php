@@ -1,0 +1,2 @@
+(Dân trí) - José Mourinho đang có ý định ký một hợp đồng mới tại Manchester United, tuy nhiên có vẻ chiến lược gia người Bồ Đào Nha sẽ chỉ làm vậy khi được ban lãnh đạo "Quỷ đỏ" tăng lương, thưởng.		
+		

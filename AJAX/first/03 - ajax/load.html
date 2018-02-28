@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link rel = "stylesheet" type="text/css" href="../css/1.css"/>
+    <script src= "../js/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			$('#OK').click(function(){
+				$.ajax({
+					url : 'data.php',
+					type : 'POST',
+					dataType : 'json',
+					data : {
+								'name':'DuyAnh'
+							},
+					success : function(responseData, status){
+						console.log(responseData);					
+						//$('#content').html(responseData);
+						
+						//if you wanna show JSON data in HTML tag => convert them to string:
+						var result = JSON.stringify(responseData);
+						$('#content').html(result);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+    <div id="content">Hello</div>
+    <input type="submit" id="OK" value="Submit">
+</body>	
+</html>

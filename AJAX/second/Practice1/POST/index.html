@@ -1,0 +1,43 @@
+<html>
+<head>
+	<style type="text/css">
+		.add{
+			color:red;
+		}
+		
+	</style>
+	<script type="text/javascript" src="../../js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.post('data.php',{key:'php'}, function(data,status){
+					$('#content').html(data);
+				});
+				
+			$('a').click(function(){
+				$('td *').removeClass('add');
+				var url = 'data.php';
+				var key = $(this).attr('class');
+				var dataSend = {key:key};
+				$.post(url,dataSend, function(data,status){
+					$('#content').html(data);
+				});
+				$(this).addClass('add');
+			});
+		});
+	</script>
+</head>
+<body>
+	<center>
+		<table width="500px" height="auto" border="1px">
+			<tr>
+				<td width="50%">
+					<a class="php" href="#" >PHP</a><br />
+					<a class="javascript" href="#">Javascript</a><br />
+					<a class="html_css" href="#">HTML/CSS</a><br />
+				</td>
+				<td id="content">abc</td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

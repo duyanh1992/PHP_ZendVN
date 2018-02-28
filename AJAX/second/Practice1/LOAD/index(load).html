@@ -1,0 +1,38 @@
+<html>
+<head>
+	<style type="text/css">
+		.add{
+			color:red;
+		}
+		
+	</style>
+	<script type="text/javascript" src="../js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#content').load('php.php');
+			$('a').click(function(){
+				$('td *').removeClass('add');
+				var className = $(this).attr('class');
+				var url = className  + '.php';
+				
+				$('#content').load(url);
+				$(this).addClass('add');
+			});
+		});
+	</script>
+</head>
+<body>
+	<center>
+		<table width="500px" height="auto" border="1px">
+			<tr>
+				<td width="50%">
+					<a class="php" href="#" >PHP</a><br />
+					<a class="javascript" href="#">Javascript</a><br />
+					<a class="html_css" href="#">HTML/CSS</a><br />
+				</td>
+				<td id="content">abc</td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>
