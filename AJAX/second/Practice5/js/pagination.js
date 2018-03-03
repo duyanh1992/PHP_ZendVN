@@ -1,5 +1,5 @@
-//var totalPage = 0;
-//var itemPerPage = 4;
+var totalPage = 0;
+var itemPerPage = 4;
 var page = 3;
 
 function init(){
@@ -8,34 +8,30 @@ function init(){
 		async: false,
 		type : 'post',
 		dataType : 'json',
-		data : {'itemPerPage':4, 'page':1, 'action':'count'},
+		data : {'itemPerPage':itemPerPage, 'page':1, 'action':'count'},
 		success : function(res){
 			//var res2 = JSON.parse(res);
 			//totalPage = res.totalPage;
-			//console.log(totalPage);
-			//console.log(res.page);
 			page = res.page;
-			//console.log(page);
+			
 			// $('#pageInfo').text('Show 1 of '+totalPage);
 			
 			// for(var i=1; i<=totalPage; i++){
 				// $('#sltPage').append('<option value="'+i+'">Page '+i+'</option>');
 			// }
 			// loadData(page);
-			// clickPrev(page, totalPage);
-			// checkNext(page, totalPage);
-			// clickNext(page, totalPage);
-			// checkPrev(page, totalPage);
 		}
 	});
 }
 
 function loadData(page){
+	//alert(page);
 	$.ajax({
 		url : 'load_data.php',
 		type : 'post',
+		async: false,
 		dataType : 'json',
-		data : {'itemPerPage':4, 'page':page, 'action':'list'},
+		data : {'itemPerPage':itemPerPage, 'page':page, 'action':'list'},
 		success : function(res){
 			 if(res.length > 0){
 				$('.show-prd').empty();
@@ -56,6 +52,7 @@ function loadData(page){
 			 $('.show-prd').append(xhtml);
 		}
 	});
+	//alert(page);
 }
 
 function clickPrev(page, totalPage){
@@ -70,17 +67,15 @@ function clickPrev(page, totalPage){
 }
 
 function clickNext(page, totalPage){
-	//console.log(page);
-	//console.log(totalPage);
+	//alert(page+'third');
+	//alert(totalPage);
 	if(page != totalPage){
-		$('#next').click(function(){
-			page+= 1;
-			loadData(page);
-			//console.log(page);
-			$('#pageInfo').text('Show '+(page)+' of '+totalPage);
-			$('#sltPage option[value='+page+']').attr('selected','selected');
-		});
+		page = page + 1;
+		loadData(page);
+		$('#pageInfo').text('Show '+(page)+' of '+totalPage);
+		$('#sltPage option[value='+page+']').attr('selected','selected');
 	}
+    alert(page);
 }
 
 function checkNext(page, totalPage){
@@ -103,28 +98,35 @@ function checkPrev(page, totalPage){
 
 
 $(document).ready(function(){
-	init();
-	console.log(page);
+	alert(page+'first');
+	init();	
 	
 	// $('#sltPage').change(function(){
-		// var page = $(this).val();
+		// page = $(this).val();
 		// $.ajax({
 			// url : 'load_data.php',
 			// type : 'post',
+			// async: false,
 			// dataType : 'json',
-			// data : {'itemPerPage':4, 'page':page, 'action':'count'},
+			// data : {'itemPerPage':itemPerPage, 'page':page, 'action':'count'},
 			// success : function(res){
-				// totalPage = res.totalPage;
 				// page = res.page;
-				// $('#pageInfo').text('Show '+page+' of '+totalPage);
-				
+				// $('#pageInfo').text('Show '+page+' of '+totalPage);				
 				// loadData(page);
-				
-				//clickPrev(page, totalPage);
-				// clickNext(page, totalPage);
-				// checkNext(page, totalPage);
-				// checkPrev(page, totalPage);
 			// }
 		// });
 	// });
+	
+	
+	alert(page+'second');
+	$('#next').click(function(){		
+		//page=page+1;
+		clickNext(page, totalPage);
+		alert(page+' test');
+	});
+	alert(page+'forth');
+	//checkNext(page, totalPage);
+	//checkPrev(page, totalPage);
+	//clickPrev(page, totalPage);
+	//clickNext(page, totalPage);
 });
