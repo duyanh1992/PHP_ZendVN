@@ -1,6 +1,6 @@
 var totalPage = 0;
 var itemPerPage = 4;
-var page = 3;
+var page = parseInt(3);
 
 function init(){
 	$.ajax({
@@ -11,15 +11,15 @@ function init(){
 		data : {'itemPerPage':itemPerPage, 'page':1, 'action':'count'},
 		success : function(res){
 			//var res2 = JSON.parse(res);
-			//totalPage = res.totalPage;
+			totalPage = res.totalPage;
 			page = res.page;
 			
-			// $('#pageInfo').text('Show 1 of '+totalPage);
+			$('#pageInfo').text('Show 1 of '+totalPage);
 			
-			// for(var i=1; i<=totalPage; i++){
-				// $('#sltPage').append('<option value="'+i+'">Page '+i+'</option>');
-			// }
-			// loadData(page);
+			for(var i=1; i<=totalPage; i++){
+				$('#sltPage').append('<option value="'+i+'">Page '+i+'</option>');
+			}
+			loadData(page);
 		}
 	});
 }
@@ -55,30 +55,28 @@ function loadData(page){
 	//alert(page);
 }
 
-function clickPrev(page, totalPage){
+function clickPrev(old_page){
 	if(page != 1){
-		$('#prev').click(function(){
-			page-= 1;
-			loadData(page);
-			$('#pageInfo').text('Show '+(page)+' of '+totalPage);
-			$('#sltPage option[value='+page+']').attr('selected','selected');
-		});
-	}
-}
-
-function clickNext(page, totalPage){
-	//alert(page+'third');
-	//alert(totalPage);
-	if(page != totalPage){
-		page = page + 1;
+		page = old_page - 1;
 		loadData(page);
 		$('#pageInfo').text('Show '+(page)+' of '+totalPage);
+		$('#sltPage option[selected="selected"]').removeAttr('selected');
 		$('#sltPage option[value='+page+']').attr('selected','selected');
 	}
-    alert(page);
 }
 
-function checkNext(page, totalPage){
+function clickNext(old_page){
+	if(page != totalPage){
+		page = old_page + 1;
+		loadData(page);
+		$('#pageInfo').text('Show '+(page)+' of '+totalPage);
+		$('#sltPage option[selected="selected"]').removeAttr('selected');
+		$('#sltPage option[value='+page+']').attr('selected','selected');
+	}
+}
+
+function checkNext(){
+	console.log(totalPage);
 	if(page == totalPage){
 		$('#next').attr('disabled', 'disabled');
 	}
@@ -87,7 +85,8 @@ function checkNext(page, totalPage){
 	}
 }
 
-function checkPrev(page, totalPage){
+function checkPrev(){
+	console.log(totalPage);
 	if(page == 1){
 		$('#prev').attr('disabled', 'disabled');
 	}
@@ -98,35 +97,28 @@ function checkPrev(page, totalPage){
 
 
 $(document).ready(function(){
-	alert(page+'first');
 	init();	
 	
-	// $('#sltPage').change(function(){
-		// page = $(this).val();
-		// $.ajax({
-			// url : 'load_data.php',
-			// type : 'post',
-			// async: false,
-			// dataType : 'json',
-			// data : {'itemPerPage':itemPerPage, 'page':page, 'action':'count'},
-			// success : function(res){
-				// page = res.page;
-				// $('#pageInfo').text('Show '+page+' of '+totalPage);				
-				// loadData(page);
-			// }
-		// });
-	// });
-	
-	
-	alert(page+'second');
-	$('#next').click(function(){		
-		//page=page+1;
-		clickNext(page, totalPage);
-		alert(page+' test');
+	$('#sltPage').change(function(){
+		page = $(this).val();
+		$.ajax({
+			url : 'load_data.php',
+			type : 'post',
+			async: false,
+			dataType : 'json',
+			data : {'itemPerPage':itemPerPage, 'page':page, 'action':'count'},
+			success : function(res){
+				page = res.page;
+				$('#pageInfo').text('Show '+page+' of '+totalPage);				
+				loadData(page);
+			}
+		});
 	});
-	alert(page+'forth');
-	//checkNext(page, totalPage);
-	//checkPrev(page, totalPage);
-	//clickPrev(page, totalPage);
-	//clickNext(page, totalPage);
+	
+	$('#next').click(function(){		
+		clickNext(page);
+	});
+	$('#prev').click(function(){		
+		clickPrev(page);
+	});
 });
