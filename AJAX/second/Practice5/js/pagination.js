@@ -61,7 +61,7 @@ function clickPrev(old_page){
 		loadData(page);
 		$('#pageInfo').text('Show '+(page)+' of '+totalPage);
 		$('#sltPage option[selected="selected"]').removeAttr('selected');
-		$('#sltPage option[value='+page+']').attr('selected','selected');
+		$('#sltPage option[value='+page+']').attr('selected',true);
 	}
 }
 
@@ -71,7 +71,7 @@ function clickNext(old_page){
 		loadData(page);
 		$('#pageInfo').text('Show '+(page)+' of '+totalPage);
 		$('#sltPage option[selected="selected"]').removeAttr('selected');
-		$('#sltPage option[value='+page+']').attr('selected','selected');
+		$('#sltPage option[value='+page+']').attr('selected',true);
 	}
 }
 
