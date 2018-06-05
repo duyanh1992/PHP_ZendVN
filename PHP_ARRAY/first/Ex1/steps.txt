@@ -1,0 +1,7 @@
+﻿- đọc dữ liệu từ các file, đưa vào các mảng quesion , sentences theo cấu trúc 
+- Xóa phần tử đầu tiên của mảng (chứa tiêu đề)
+- Gộp 2 mảng lại với nhau theo cấu trúc
+- Đổ dữ liệu các câu hỏi ra
+- Submit:
+ +  Cộng điểm của tất cả các câu hỏi dc trả lời (k tính các dữ liệu thừa)
+ + Dựa vào đó in ra các câu trả lời

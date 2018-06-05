@@ -1,5 +1,5 @@
 <?php
-$arr = array('course'=>'PHP', 'chapter'=>'1', 'num'=>'1');
+$arr = array('course'=>'PHP', 'chapter'=>'1', 'num'=>'1', 'num2'=>'1');
 print_r($arr);
 echo "<br />";
 // del same element:

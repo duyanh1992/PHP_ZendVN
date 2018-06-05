@@ -1,0 +1,13 @@
+﻿http://210.245.126.171/Music/Nhactre/Tinhyeu_LyMaiTrang/wma32/06_BienTham_TinhYeu_LyMaiTrang.wma
+
+1. Tách đoạn cần xử lý từ URL ra:
+- Cách 1 : Dùng hàm parse_url đề phân tích chuỗi
+- Cách 2 : Tính vị trí của dấu '/' cuối cùng. Rồi cắt từ đó đến hết chuỗi
+- Cách 3 : Dựa vào dấu '/', cắt chuỗi thành mảng rồi lấy ph tử cuối cùng 
+
+2. Dựa vào dấu '_' cắt thành mảng
+3. Với phần tử cuối cùng, dựa vào dấu '.' để tách thành mảng tiếp
+4. Viết hàm thêm khoảng trắng vào giữa các từ
+
+
+
