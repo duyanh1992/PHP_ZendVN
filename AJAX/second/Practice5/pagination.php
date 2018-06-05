@@ -19,9 +19,7 @@
 		<button id="pageInfo">Show 1 of 3</button>
 		<button id="prev"> << Prev </button>
 		<select name="sltPage" id="sltPage">
-			<option value="1">page 1</option>
-			<option value="2">page 2</option>
-			<option value="3">page 3</option>
+			
 		</select>
 		<button id="next"> Next >> </button>
 	</center>
